@@ -6,11 +6,10 @@ import './Chat.scss'
 class Chat extends Component {
 
   render() {
-    console.log(this.props)
     return (
       <div className="chat">
       <Messages {...this.props.currentChat}/>
-      <ChatForm />
+      <ChatForm {...this.props.currentUser} postMessage={this.props.postMessage}/>
       </div>
     );
   }

@@ -4,7 +4,6 @@ import './Message.scss'
 class Message extends Component {
 
   render() {
-    console.log(this.props)
     const { username, profile_picture } = this.props.user
     const { id, sent, text } = this.props.content
     return (
