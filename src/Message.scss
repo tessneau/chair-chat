@@ -1,0 +1,22 @@
+.message {
+  padding: 0.2em 0.2em 0em;
+  background: white;
+  // border: green 1px solid;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+
+  &:nth-child(odd) {
+    // border: 2px solid green;
+  }
+
+  &__user {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    align-self: center;
+  }
+}

@@ -4,7 +4,7 @@ import Chatroom from './Chatroom'
 
 class ChatroomList extends Component {
 
-  generateChatrooms = () => this.props.chatrooms.map(chatroom => <Chatroom key={chatroom.name} {...chatroom}/>)
+  generateChatrooms = () => this.props.chatrooms.map(chatroom => <Chatroom key={chatroom.name} {...chatroom} getChat={this.props.getChat}/>)
 
   render() {
     return (

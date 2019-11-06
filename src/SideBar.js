@@ -9,7 +9,7 @@ class SideBar extends Component {
     return (
       <div className="sidebar">
       <Profile {...this.props.current_user}/>
-      <ChatroomList chatrooms={this.props.chatrooms}/>
+      <ChatroomList chatrooms={this.props.chatrooms} getChat={this.props.getChat}/>
       </div>
     );
   }

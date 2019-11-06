@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Messages from './Messages'
+import ChatForm from './ChatForm'
 import './Chat.scss'
 
 class Chat extends Component {
@@ -7,7 +9,8 @@ class Chat extends Component {
     console.log(this.props)
     return (
       <div className="chat">
-      I'm the chat !!!
+      <Messages {...this.props.currentChat}/>
+      <ChatForm />
       </div>
     );
   }
