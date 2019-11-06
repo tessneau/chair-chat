@@ -1,0 +1,15 @@
+.chat-container {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  width: 90%;
+  height: 90%;
+  background: rgba(230, 221, 208, 0.9);
+  color: rgb(23, 14, 2);
+
+  display: flex;
+
+  h1 {
+    margin: 1em;
+  }
+}
