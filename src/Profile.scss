@@ -1,12 +1,15 @@
 .profile {
-  height: 15%;
+  height: 20%;
   background: rgba(139, 184, 132, 0.6);
   padding: 0.6em;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-flow: column;
 
-  &__picture {
-
+  &__bio {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
+
 }

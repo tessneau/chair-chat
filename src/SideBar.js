@@ -7,7 +7,7 @@ const SideBar = ({ user, chatrooms, getChat }) => {
 
     return (
       <div className="sidebar">
-      <Profile user={user}/>
+      <Profile {...user}/>
       <ChatroomList chatrooms={chatrooms} getChat={getChat}/>
       </div>
     );
