@@ -1,37 +1,51 @@
-import React, { Component } from 'react';
-import { Input } from 'semantic-ui-react'
-import './ChatForm.scss'
+import React, { Component, useState, useEffect } from "react";
+import { Button, Form } from "semantic-ui-react";
+import "./ChatForm.scss";
 
-class ChatForm extends Component {
+const ChatForm = ({ postMessage }) => {
 
-  state = {
-    id: 5,
-    sent: new Date().toString(),
-    text: ""
+  const [message, setMessage] = useState("")
+
+  const handleChange = e => setMessage(e.target.value)
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    postMessage(message);
+    setMessage("");
   }
 
-  handleChange = e => {
-    this.setState({[e.target.name]: e.target.value })
-  }
+  // useEffect(() => {
+  //   console.log('i run at every render')
+  //   })
+  //
+  // useEffect(() => {
+  //   console.log('componentDidMount equivalent, i run only at the first render')
+  //   }, [])
+  //
+  // useEffect(() => {
+  //   console.log('i run when ')
+  //   })
 
-  handleSubmit = e => {
-    e.preventDefault()
-    this.props.postMessage(this.state)
-    this.setState({text: ""})
-  }
-
-  render() {
     return (
-      <div className="chatform" onSubmit={this.handleSubmit}>
-      <form>
-        <label>Message</label>
-        <input type="text" name="text" value={this.state.text} onChange={this.handleChange}/>
-        <input type="submit" value="Submit" />
-      </form>
+      <div className="chatform">
+        <Form className="ui action input" onSubmit={handleSubmit}>
+          <Form.Field>
+            <input
+              placeholder="Message..."
+              type="text"
+              name="message"
+              value={message}
+              onChange={handleChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <Button color="olive" type="submit">
+              Send
+            </Button>
+          </Form.Field>
+        </Form>
       </div>
     );
-  }
-
 }
 
 export default ChatForm;

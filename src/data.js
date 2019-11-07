@@ -26,7 +26,6 @@ export default {
           },
           content: {
             id: 1,
-            sent: "some-date",
             text: "Lorem ipsum dolor sit amet"
           }
         },
@@ -37,7 +36,6 @@ export default {
           },
           content: {
             id: 2,
-            sent: "some-date",
             text: "Quam euismod sem, semper ut"
           }
         },
@@ -48,7 +46,6 @@ export default {
           },
           content: {
             id: 3,
-            sent: "some-date",
             text: "Lorem ipsum dolor sit amet"
           }
         }

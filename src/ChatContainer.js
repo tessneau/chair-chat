@@ -1,37 +1,49 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import SideBar from './SideBar'
 import Chat from './Chat'
 import './ChatContainer.scss'
+import data from './data.js'
 
-class ChatContainer extends Component {
+const ChatContainer = () => {
 
-  state = {
-    currentChat: this.props.data.chatrooms[0]
+  const [user, setUser] = useState(data.current_user)
+  const [chatrooms, setChatrooms] = useState(data.chatrooms)
+  const [currentChat, setCurrentChat] = useState(data.chatrooms[3])
+
+  const getChat = chat => {
+    setCurrentChat(chat)
   }
 
-  getChat = chat => {
-    this.setState({currentChat: chat})
-  }
-
-  postMessage = content => {
-    const newCurrentChat = {...this.state.currentChat}
+  const postMessage = content => {
     const newMessage = {
-      user: this.props.data.current_user,
-      content: content
+      user: user,
+      content: {
+        text: content
+      }
     }
-    newCurrentChat.messages.push(newMessage)
-    this.setState({currentChat: newCurrentChat})
+    const newCurrentChat = {
+      ...currentChat,
+      messages: [...currentChat.messages, newMessage]
+    }
+    setCurrentChat(newCurrentChat)
+
+    const newChatrooms = chatrooms.map(chatroom => {
+        if (chatroom.name === newCurrentChat.name) {
+          return newCurrentChat
+        }
+        return chatroom
+      })
+      console.log(newChatrooms)
+      setChatrooms(newChatrooms)
   }
 
-  render() {
-    const { current_user:currentUser } = this.props.data
+    console.log(data)
     return (
       <div className="chat-container">
-      <SideBar {...this.props.data} getChat={this.getChat} />
-      <Chat currentChat={this.state.currentChat} currentUser={currentUser} postMessage={this.postMessage}/>
+      <SideBar {...data} getChat={getChat} />
+      <Chat currentChat={currentChat} currentUser={user} postMessage={postMessage}/>
       </div>
     );
-  }
 
 }
 
