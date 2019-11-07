@@ -11,6 +11,7 @@ const ChatContainer = () => {
   const [currentChat, setCurrentChat] = useState(data.chatrooms[3])
 
   const getChat = chat => {
+    const selectedChat = chatrooms.find(chatroom => chatroom.name)
     setCurrentChat(chat)
   }
 
@@ -26,7 +27,6 @@ const ChatContainer = () => {
       messages: [...currentChat.messages, newMessage]
     }
     setCurrentChat(newCurrentChat)
-
     const newChatrooms = chatrooms.map(chatroom => {
         if (chatroom.name === newCurrentChat.name) {
           return newCurrentChat
@@ -37,10 +37,9 @@ const ChatContainer = () => {
       setChatrooms(newChatrooms)
   }
 
-    console.log(data)
     return (
       <div className="chat-container">
-      <SideBar {...data} getChat={getChat} />
+      <SideBar user={user} chatrooms={chatrooms} getChat={getChat} />
       <Chat currentChat={currentChat} currentUser={user} postMessage={postMessage}/>
       </div>
     );

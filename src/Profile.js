@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Profile.scss'
 
-class Profile extends Component {
+const Profile = ({ username, profile_picture }) => {
 
-  render() {
     return (
       <div className="profile">
-      <h3>{this.props.username}</h3>
+      <h3>{username}</h3>
       <div className="profile__picture">
-      <img src={this.props.profile_picture} width="100" alt="chair_me"/>
+      <img src={profile_picture} width="100" alt="chair_me"/>
       </div>
       </div>
     );
-  }
 
 }
 

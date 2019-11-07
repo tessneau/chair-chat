@@ -3,16 +3,14 @@ import Profile from './Profile'
 import ChatroomList from './ChatroomList'
 import './SideBar.scss'
 
-class SideBar extends Component {
+const SideBar = ({ user, chatrooms, getChat }) => {
 
-  render() {
     return (
       <div className="sidebar">
-      <Profile {...this.props.current_user}/>
-      <ChatroomList chatrooms={this.props.chatrooms} getChat={this.props.getChat}/>
+      <Profile user={user}/>
+      <ChatroomList chatrooms={chatrooms} getChat={getChat}/>
       </div>
     );
-  }
 
 }
 
