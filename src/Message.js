@@ -5,7 +5,7 @@ class Message extends Component {
 
   render() {
     const { username, profile_picture } = this.props.user
-    const { id, sent, text } = this.props.content
+    // const { id, sent, text } = this.props.content
     return (
       <div className="message">
         <div className="message__user">
@@ -13,7 +13,7 @@ class Message extends Component {
         <strong>{username}</strong>
         </div>
         <div className="message__content">
-        <p className="message__content__text">{text}</p>
+        <p className="message__content__text">{this.props.content.text}</p>
         </div>
       </div>
     );
